@@ -1,21 +1,15 @@
 import React from 'react';
 import './FeaturedMovie.css';
 
-export default ({item}) => {
-    console.log(item);
-
+export function FeaturedMovie ({item}) {
     let firstDate = new Date(item.first_air_date);
     let genres = [];
 
-    for(let i in item.genres) {
-        genres.push(item.genres[i].name);
-    }
+    for(let i in item.genres) genres.push(item.genres[i].name);
 
     let description = item.overview;
 
-    if(description.length > 200) {
-        description = description.substring(0, 200)+'...';
-    }
+    if(description.length > 200) description = description.substring(0, 200)+'...';
 
     return (
         <section className="featured" style={{
